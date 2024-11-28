@@ -1,0 +1,14 @@
+
+<h2>Quizz {{quiz?.name}} </h2>
+
+
+<p> {{quiz?.description}} !</p>
+
+
+<p> Difficulté : {{quiz?.difficulty}}</p>
+
+
+<p> Publié le {{quiz?.published?.toLocaleDateString()}}</p>
+
+
+<a [routerLink]="['.','questions']">Démarrer le quizz !</a>

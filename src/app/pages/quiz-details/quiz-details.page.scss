@@ -1,0 +1,18 @@
+a {
+  text-decoration :none;
+  color:#000;
+  display:inline-block;
+  width:150px;
+  height:50px;
+  line-height:50px;
+  vertical-align:middle;
+  text-align:center;
+  border-radius :25px;
+  background :#e54704;
+}
+
+a:hover{
+    background :#e4efc0;
+    background-image:linear-gradient(to bottom, #e4efc0 0%,#abbd73 100%);
+    
+}

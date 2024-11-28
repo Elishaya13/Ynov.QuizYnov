@@ -1,0 +1,12 @@
+<div>
+<h2>Tableau de bord</h2>
+<ul>
+  @for(quiz of quizzes; track quiz.id){
+    <li>
+        <a [routerLink]="['.','quizzes', quiz.id]">
+            {{quiz.name}} {{quiz.difficulty}} - {{quiz.published.toLocaleDateString()}}
+        </a>
+    </li>
+  }
+</ul>
+</div>
