@@ -4,6 +4,8 @@ import { map, Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { QuizDto } from '../dtos/quiz.dto';
 import { QuizMapper } from './quiz.mapper';
+import { Question } from '../models/question.model';
+import { QuestionDto } from '../dtos/question.dto';
 
 @Injectable({ providedIn: 'root' })
 export class QuizService {
@@ -12,24 +14,24 @@ export class QuizService {
     private readonly client: HttpClient
   ) {}
 
-  // route pour recuperer la liste des quizz
+  // route pour recuperer la liste des quiz
   public list(): Observable<Quiz[]> {
     return this.client
       .get<QuizDto[]>('https://localhost:5000/api/quizzes')
       .pipe(map((dtos) => dtos.map((dto) => this.mapper.fromDto(dto))));
   }
 
-  // route pour recuperer un quizz
+  // route pour recuperer un quiz par son id
   public get(id: string): Observable<Quiz> {
     return this.client
       .get<QuizDto>(`https://localhost:5000/api/quizzes/${id}`)
       .pipe(map((dto) => this.mapper.fromDto(dto)));
   }
 
-  // route pour recuperer les qquestions d'un quizz
-  public getQuestions(id: string): Observable<Quiz> {
+  // route pour recuperer les questions d'un quiz par l'id du quiz
+  public getQuestionsByQuizId(id: string): Observable<Question[]> {
     return this.client
-      .get<QuizDto>(`https://localhost:5000/api/quizzes/${id}/questions`)
-      .pipe(map((dto) => this.mapper.fromDto(dto)));
+      .get<QuestionDto[]>(`https://localhost:5000/api/quizzes/${id}/questions`)
+      .pipe(map((dtos) => dtos.map((dto) => this.mapper.fromQuestionDto(dto))));
   }
 }

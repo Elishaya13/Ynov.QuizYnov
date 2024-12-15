@@ -1,7 +1,29 @@
 
-<div>
-<h3>Liste des questions du quizz ici!</h3>
+<!-- <pre>{{ questions | json }}</pre> -->
+<!-- <pre>{{ serializedQuestions | json }}</pre> -->
+<!-- <pre>{{ questions | json }}</pre>
+<pre>{{ form.value | json }}</pre> -->
 
-<p>Question 1</p>
-<p>Question 2</p>
-</div>
+
+<ul>
+    <!-- Parcourt les questions -->
+    <li *ngFor="let question of questions">
+      <!-- Affiche le texte de la question -->
+      <p><strong>{{ question.text }}</strong></p>
+      <ul>
+        <!-- Parcourt les réponses -->
+        <li *ngFor="let answer of question.answers">
+          <label>
+            <input
+              type="radio"
+              name="question{{ question.id }}"
+              [value]="answer.text"
+            />
+            {{ answer.text }}
+          </label>
+        </li>
+      </ul>
+    </li>
+  </ul>
+
+

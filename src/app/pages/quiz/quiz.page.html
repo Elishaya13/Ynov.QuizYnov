@@ -7,5 +7,6 @@
 <p>Catégorie : {{quiz?.category?.name}}</p>
 <p>Nombre de questions : {{quiz?.questions?.length}}</p>
 <!-- Composant affichant les questions du quizz -->
- <app-questions></app-questions>
+<app-questions *ngIf="questions.length >0 " [questions] = "questions"></app-questions>
+ <!-- <app-questions [questions] = {{quiz?.questions}}></app-questions> -->
 </div>
