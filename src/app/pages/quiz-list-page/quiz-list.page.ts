@@ -1,17 +1,17 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { Quiz } from '../../../../business/models/quiz.model';
-import { Router, RouterLink } from '@angular/router';
-import { QuizService } from '../../../../business/services/quiz.service';
+import { Quiz } from '../../business/models/quiz.model';
+import { RouterLink } from '@angular/router';
+import { QuizService } from '../../business/services/quiz.service';
 
 @Component({
-  selector: 'app-dashboard',
+  selector: 'app-quiz-list-page',
   standalone: true,
   imports: [RouterLink],
-  templateUrl: './dashboard.component.html',
-  styleUrl: './dashboard.component.scss',
+  templateUrl: './quiz-list.page.html',
+  styleUrl: './quiz-list.page.scss',
 })
-export class DashboardComponent implements OnInit, OnDestroy {
+export class QuizListPage implements OnInit, OnDestroy {
   protected quizzes: Quiz[] | null = null;
   private subscription: Subscription | null = null;
 
@@ -19,7 +19,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
 
   public ngOnInit(): void {
     this.subscription = this.quizService
-      .list()
+      .getQuizList()
       .subscribe((list) => (this.quizzes = list));
   }
   public ngOnDestroy(): void {

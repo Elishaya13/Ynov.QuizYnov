@@ -1,0 +1,16 @@
+
+<div>
+  <h2>Liste des quiz</h2>
+  <div class="quiz-list">
+    @for(quiz of quizzes; track quiz.id){
+      <div class="quiz-card">
+        <a [routerLink]="['.', quiz.id]" class="quiz-link">
+          <h3>{{ quiz.name }}</h3>
+          <p>Difficulté : {{ quiz.difficulty }}</p>
+          <p>Publié le : {{ quiz.published.toLocaleDateString() }}</p>
+        </a>
+      </div>
+    }
+  </div>
+</div>
+

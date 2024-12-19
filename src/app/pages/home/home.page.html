@@ -1,2 +1,32 @@
-<h1>Bienvenue sur Quiz'Ynov !</h1>
-<app-dashboard></app-dashboard>
+<div class="header">
+    <img src="/logo-quiz.png" alt="Quiz'Ynov Logo" class="logo" />
+    <h1 class="title">Bienvenue sur Quiz'Ynov !</h1>
+  </div>
+
+<div class="navigation-container">
+  <div class="navigation">
+    <div class="nav-card">
+      <a [routerLink]="['/quizzes']" class="nav-link">
+        <h3>Explorer les Quiz</h3>
+        <p>Testez vos connaissances avec nos quiz interactifs et amusants.</p>
+      </a>
+    </div>
+
+    <div class="nav-card">
+      <a [routerLink]="['/profile']" class="nav-link">
+        <h3>Voir mon Profil</h3>
+        <p>Gérez vos informations personnelles et découvrez vos statistiques.</p>
+      </a>
+    </div>
+
+    <div class="nav-card">
+      <a [routerLink]="['/scores']" class="nav-link">
+        <h3>Voir les Scores</h3>
+        <p>Suivez vos performances et comparez vos résultats avec les autres.</p>
+      </a>
+    </div>
+  </div>
+</div>
+
+
+   

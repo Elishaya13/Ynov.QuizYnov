@@ -1,14 +1,17 @@
 
-<h2>Quizz {{quiz?.name}} </h2>
+<!-- Quiz details page -->
 
-
-<p> {{quiz?.description}} !</p>
-
-
-<p> Difficulté : {{quiz?.difficulty}}</p>
-
-
-<p> Publié le {{quiz?.published?.toLocaleDateString()}}</p>
-
-
-<a [routerLink]="['.','questions']">Démarrer le quizz !</a>
+<div class="quiz-details">
+    <a [routerLink]="['/quizzes']" class="back-btn">← Retour à la liste des Quiz</a>
+    <h2>{{ quiz?.name }}</h2>
+  
+    <p class="description">{{ quiz?.description }}</p>
+  
+    <div class="info">
+      <p><strong>Difficulté :</strong> {{ quiz?.difficulty }}</p>
+      <p><strong>Publié le :</strong> {{ quiz?.published?.toLocaleDateString() }}</p>
+    </div>
+  
+    <a [routerLink]="['.','questions']" class="start-quiz-btn">Démarrer le Quiz !</a>
+  </div>
+  

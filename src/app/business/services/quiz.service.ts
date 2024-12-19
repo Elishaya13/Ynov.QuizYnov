@@ -15,14 +15,14 @@ export class QuizService {
   ) {}
 
   // route pour recuperer la liste des quiz
-  public list(): Observable<Quiz[]> {
+  public getQuizList(): Observable<Quiz[]> {
     return this.client
       .get<QuizDto[]>('https://localhost:5000/api/quizzes')
       .pipe(map((dtos) => dtos.map((dto) => this.mapper.fromDto(dto))));
   }
 
   // route pour recuperer un quiz par son id
-  public get(id: string): Observable<Quiz> {
+  public getQuizById(id: string): Observable<Quiz> {
     return this.client
       .get<QuizDto>(`https://localhost:5000/api/quizzes/${id}`)
       .pipe(map((dto) => this.mapper.fromDto(dto)));

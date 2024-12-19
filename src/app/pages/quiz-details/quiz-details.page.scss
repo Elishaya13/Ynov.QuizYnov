@@ -1,18 +1,119 @@
-a {
-  text-decoration :none;
-  color:#000;
-  display:inline-block;
-  width:150px;
-  height:50px;
-  line-height:50px;
-  vertical-align:middle;
-  text-align:center;
-  border-radius :25px;
-  background :#e54704;
+.quiz-details {
+  max-width: 600px; 
+  margin: 30px auto; 
+  padding: 20px;
+  border: 1px solid #ddd; 
+  border-radius: 10px; 
+  background-color: #f9f9f9; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+  text-align: center; 
 }
 
-a:hover{
-    background :#e4efc0;
-    background-image:linear-gradient(to bottom, #e4efc0 0%,#abbd73 100%);
-    
+.quiz-details h2 {
+  font-size: 28px;
+  color: #0078d4; 
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+.quiz-details .description {
+  font-size: 18px;
+  color: #555; 
+  margin-bottom: 20px;
+  line-height: 1.6; 
+}
+
+.quiz-details .info {
+  text-align: left; 
+  margin-bottom: 20px;
+  font-size: 16px;
+  color: #666;
+}
+
+.quiz-details .info p {
+  margin: 5px 0;
+}
+
+.start-quiz-btn {
+  display: inline-block;
+  text-decoration: none;
+  background-color: #0078d4; 
+  color: #fff; 
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+}
+
+.start-quiz-btn:hover {
+  background-color: #005bb5; 
+  transform: translateY(-2px); 
+}
+
+.start-quiz-btn:active {
+  background-color: #004a93; 
+  transform: translateY(0);
+}
+
+.back-btn {
+  display: inline-block;
+  text-decoration: none;
+  background-color: #e0e0e0; 
+  color: #333; 
+  padding: 8px 12px;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 20px; 
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.back-btn:hover {
+  background-color: #ccc; 
+  color: #000; 
+}
+
+.back-btn:active {
+  transform: translateY(1px); 
+}
+
+/* Responsivité */
+@media (max-width: 768px) {
+  .quiz-details {
+    padding: 15px;
+  }
+
+  .quiz-details h2 {
+    font-size: 24px;
+  }
+
+  .quiz-details .description {
+    font-size: 16px;
+  }
+
+  .start-quiz-btn {
+    font-size: 14px;
+    padding: 8px 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .quiz-details {
+    padding: 10px;
+  }
+
+  .quiz-details h2 {
+    font-size: 20px;
+  }
+
+  .quiz-details .description {
+    font-size: 14px;
+  }
+
+  .start-quiz-btn {
+    font-size: 12px;
+    padding: 6px 12px;
+  }
 }

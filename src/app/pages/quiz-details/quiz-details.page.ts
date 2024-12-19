@@ -22,7 +22,7 @@ export class QuizDetailsPage implements OnInit, OnDestroy {
 
   public ngOnInit(): void {
     this.subscription = this.quizService
-      .get(this.id())
+      .getQuizById(this.id())
       .subscribe((quiz) => (this.quiz = quiz));
   }
 

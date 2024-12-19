@@ -1,9 +1,21 @@
 
 
-<nav>
-  <a [routerLink]="'/'">Accueil</a>  
+<nav class="navbar">
+  <div class="navbar-brand">
+    <a [routerLink]="'/'" class="brand-link">Quiz'Ynov</a>
+  </div>
+  <div class="navbar-links">
+    <a [routerLink]="'/'" class="nav-link">Accueil</a>
+    <a [routerLink]="'/quizzes'" class="nav-link">Quiz</a>
+    <a [routerLink]="'/scores'" class="nav-link">Scores</a>
+    <a [routerLink]="'/profile'" class="nav-link">Profil</a>
+  </div>
+  <div class="navbar-auth">
+    <button class="auth-button" (click)="toggleAuth()">
+      {{ isAuthenticated ? 'Déconnexion' : 'Connexion' }}
+    </button>
+  </div>
 </nav>
-
 
 
 <router-outlet></router-outlet>
