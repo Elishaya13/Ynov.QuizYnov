@@ -1,0 +1,7 @@
+<button
+  class="app-button {{ type }} {{ size }}"
+  [attr.disabled]="disabled ? true : null"
+>
+  <span class="icon" [hidden]="!icon">{{ icon }}</span>
+  {{ label }}
+</button>

@@ -1,27 +1,35 @@
-
 <div class="quiz-page">
-    <h2>{{ quiz?.name }}</h2>
-    
-    <p class="description">{{ quiz?.description }}</p>
-    
-    <div class="quiz-info">
-      <p><strong>Difficulté :</strong> {{ quiz?.difficulty }}</p>
-      <p><strong>Publié le :</strong> {{ quiz?.published?.toLocaleDateString() }}</p>
-      <p><strong>Catégorie :</strong> {{ quiz?.category?.name }}</p>
-      <p><strong>Nombre de questions :</strong> {{ quiz?.questions?.length }}</p>
-    </div>
-    
-    <!-- Composant pour les questions -->
-    <app-questions *ngIf="questions.length > 0" [questions]="questions"></app-questions>
-  
-    
-    <div class="quiz-actions">
-      <button class="btn-validate" (click)="validateQuiz()">Valider les réponses</button>
-    </div>
+  <h2>{{ quiz?.name }}</h2>
+
+  <p class="description">{{ quiz?.description }}</p>
+
+  <div class="quiz-info">
+    <p><strong>Difficulté :</strong> {{ quiz?.difficulty }}</p>
+    <p>
+      <strong>Publié le :</strong> {{ quiz?.published?.toLocaleDateString() }}
+    </p>
+    <p><strong>Catégorie :</strong> {{ quiz?.category?.name }}</p>
+    <p><strong>Nombre de questions :</strong> {{ quiz?.questions?.length }}</p>
   </div>
-  
-  
-  <div class="quiz-abandon">
-    <button class="btn-abandon" (click)="abandonQuiz()">Abandonner le quiz</button>
+
+  <!-- Composant pour les questions -->
+  @if (questions$ |async ) {
+    <app-questions [questions]="questions"></app-questions>
+  }
+
+  <div class="quiz-actions">
+    <app-button
+      label="Valider les réponses"
+      type="primary"
+      (click)="validateQuiz()"
+    ></app-button>
   </div>
-  
+</div>
+
+<div class="quiz-abandon">
+  <app-button
+    label="Abandonner le quiz"
+    type="danger"
+    (click)="abandonQuiz()"
+  ></app-button>
+</div>

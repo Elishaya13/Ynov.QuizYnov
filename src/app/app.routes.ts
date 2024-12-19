@@ -1,8 +1,8 @@
 import { Routes } from '@angular/router';
-import { QuizDetailsPage } from './pages/quiz-details/quiz-details.page';
-import { HomePage } from './pages/home/home.page';
+import { QuizDetailsPage } from './pages/quiz-details-page/quiz-details.page';
+import { HomePage } from './pages/home-page/home.page';
 import { QuizListPage } from './pages/quiz-list-page/quiz-list.page';
-import { NotfoundPage } from './pages/notfound/notfound.page';
+import { NotfoundPage } from './pages/notfound-page/notfound.page';
 import { QuizPage } from './pages/quiz-page/quiz.page';
 
 export const routes: Routes = [

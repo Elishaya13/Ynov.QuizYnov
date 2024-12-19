@@ -49,17 +49,18 @@
 // }
 import { Component, input, OnDestroy, OnInit } from '@angular/core';
 import { QuestionsComponent } from '../../components/questions/questions.component';
-import { Subscription } from 'rxjs';
+import { Observable, of, Subscription } from 'rxjs';
 import { Quiz } from '../../business/models/quiz.model';
 import { QuizService } from '../../business/services/quiz.service';
 import { Question } from '../../business/models/question.model';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
+import { ButtonComponent } from '../../shared/button/button.component';
 
 @Component({
   selector: 'app-quiz-page',
   standalone: true,
-  imports: [CommonModule, QuestionsComponent],
+  imports: [CommonModule, QuestionsComponent, ButtonComponent],
   templateUrl: './quiz.page.html',
   styleUrl: './quiz.page.scss',
 })
@@ -67,7 +68,8 @@ export class QuizPage implements OnInit, OnDestroy {
   public readonly id = input.required<string>();
 
   protected quiz: Quiz | null = null;
-  protected questions: Question[] = [];
+  public questions$: Observable<Question[]> | null = null;
+  public questions: Question[] = [];
 
   private quizSubscription: Subscription | null = null;
   private questionSubscription: Subscription | null = null;
@@ -86,18 +88,21 @@ export class QuizPage implements OnInit, OnDestroy {
         console.log('Quiz chargé :', this.quiz);
       });
 
+    // Charger les questions du quiz et les assigner à questions$
+    this.questions$ = this.quizService.getQuestionsByQuizId(this.id());
+
     // Charger les questions du quiz
-    this.questionSubscription = this.quizService
-      .getQuestionsByQuizId(this.id())
-      .subscribe((questions) => {
-        this.questions = questions;
-        console.log('Questions chargées dans quiz page:', this.questions);
-      });
+
+    // Souscrire à questions$ pour récupérer les données et les assigner à questions
+    this.questionSubscription = this.questions$.subscribe((questions) => {
+      this.questions = questions; // Stocker les questions dans la propriété questions
+      console.log('Questions chargées dans quiz page:', this.questions);
+    });
   }
 
   public validateQuiz(): void {
     // Logique pour valider le quiz (temporaire)
-    console.log('Validation des réponses :', this.questions);
+    console.log('Validation des réponses :', this.questions$);
     alert('Quiz validé avec succès !');
   }
 
