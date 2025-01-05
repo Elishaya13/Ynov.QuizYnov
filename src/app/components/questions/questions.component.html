@@ -4,26 +4,18 @@
 <!-- <pre>{{ questions | json }}</pre>
 <pre>{{ form.value | json }}</pre> -->
 
-
-<ul>
-    <!-- Parcourt les questions -->
-    <li *ngFor="let question of questions">
-      <!-- Affiche le texte de la question -->
-      <p><strong>{{ question.text }}</strong></p>
-      <ul>
-        <!-- Parcourt les réponses -->
-        <li *ngFor="let answer of question.answers">
-          <label>
-            <input
-              type="radio"
-              name="question{{ question.id }}"
-              [value]="answer.text"
-            />
-            {{ answer.text }}
-          </label>
-        </li>
-      </ul>
-    </li>
-  </ul>
-
+<form [formGroup]="form" (ngSubmit)="onSubmitForm()">
+  <div formArrayName="questions">
+    <div *ngFor="let question of questions; let i = index" [formGroupName]="i">
+      <p>{{ questions[i].text }}</p>
+      <div *ngFor="let answer of questions[i].answers">
+        <label>
+          <input type="radio" formControlName="selectedAnswer" [value]="answer.text">
+          {{ answer.text }}
+        </label>
+      </div>
+    </div>
+  </div>
+  <button type="submit">Submit</button>
+</form>
 
