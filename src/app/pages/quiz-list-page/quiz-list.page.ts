@@ -3,11 +3,12 @@ import { Subscription } from 'rxjs';
 import { Quiz } from '../../business/models/quiz.model';
 import { RouterLink } from '@angular/router';
 import { QuizService } from '../../business/services/quiz.service';
+import { CategoryTagComponent } from '../../shared/category-tag/category-tag.component';
 
 @Component({
   selector: 'app-quiz-list-page',
   standalone: true,
-  imports: [RouterLink],
+  imports: [RouterLink, CategoryTagComponent],
   templateUrl: './quiz-list.page.html',
   styleUrl: './quiz-list.page.scss',
 })

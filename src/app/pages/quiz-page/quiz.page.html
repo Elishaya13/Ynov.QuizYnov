@@ -1,15 +1,23 @@
 <div class="quiz-page">
+  <div class="tag-container">
+    <!-- Composant pour le tag -->
+    <app-category-tag 
+      [categoryName]="quiz?.category?.name ?? 'Catégorie par défaut'" 
+      [categoryId]="quiz?.category?.id ?? 0">
+    </app-category-tag>
+  </div>
   <h2>{{ quiz?.name }}</h2>
 
   <p class="description">{{ quiz?.description }}</p>
+
 
   <div class="quiz-info">
     <p><strong>Difficulté :</strong> {{ quiz?.difficulty }}</p>
     <p>
       <strong>Publié le :</strong> {{ quiz?.published?.toLocaleDateString() }}
     </p>
-    <p><strong>Catégorie :</strong> {{ quiz?.category?.name }}</p>
-    <p><strong>Nombre de questions :</strong> {{ quiz?.questions?.length }}</p>
+    <p><strong>Nombre de questions :</strong> {{ quiz?.questions?.length }}</p>   
+    
   </div>
 
   <!-- Composant pour les questions -->

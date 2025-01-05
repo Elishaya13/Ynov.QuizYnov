@@ -1,4 +1,5 @@
 .quiz-page {
+  position: relative;
     max-width: 800px;
     margin: 30px auto;
     padding: 20px;
@@ -6,6 +7,14 @@
     border-radius: 10px;
     background-color: #f9f9f9;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .tag-container {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: auto;
   }
   
   .quiz-page h2 {
@@ -24,9 +33,11 @@
   
   .quiz-info {
     text-align: left;
-    margin-bottom: 20px;
     font-size: 16px;
     color: #666;
+    border-bottom: 2px solid #ccc; /* Ajoute une ligne de séparation */
+    padding-bottom: 20px; 
+    margin-bottom: 20px; 
   }
   
   .quiz-info p {

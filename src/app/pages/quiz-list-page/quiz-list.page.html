@@ -5,9 +5,14 @@
     @for(quiz of quizzes; track quiz.id){
       <div class="quiz-card">
         <a [routerLink]="['.', quiz.id]" class="quiz-link">
-          <h3>{{ quiz.name }}</h3>
+          <h3>{{ quiz.name }}</h3>       
           <p>Difficulté : {{ quiz.difficulty }}</p>
           <p>Publié le : {{ quiz.published.toLocaleDateString() }}</p>
+          <!-- Composant pour le tag -->
+          <app-category-tag 
+          [categoryName]="quiz?.category?.name ?? 'Catégorie par défaut'" 
+          [categoryId]="quiz?.category?.id ?? 0">
+        </app-category-tag>
         </a>
       </div>
     }

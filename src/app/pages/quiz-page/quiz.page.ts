@@ -56,11 +56,17 @@ import { Question } from '../../business/models/question.model';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { ButtonComponent } from '../../shared/button/button.component';
+import { CategoryTagComponent } from '../../shared/category-tag/category-tag.component';
 
 @Component({
   selector: 'app-quiz-page',
   standalone: true,
-  imports: [CommonModule, QuestionsComponent, ButtonComponent],
+  imports: [
+    CommonModule,
+    QuestionsComponent,
+    ButtonComponent,
+    CategoryTagComponent,
+  ],
   templateUrl: './quiz.page.html',
   styleUrl: './quiz.page.scss',
 })

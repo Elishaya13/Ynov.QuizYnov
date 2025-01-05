@@ -1,0 +1,31 @@
+@import '../../../assets/styles/variables.scss';
+
+.style-tag {
+    display: flex;    
+    align-items: center;    
+    justify-content: center; 
+    margin: 0.5rem;
+    padding: 0.5rem 1.5rem;
+    border-radius: 1rem;
+    text-align: center;  
+    font-size: 0.8rem; 
+    font-weight: 800;  
+  }
+
+.tag-color-1 {
+  background-color: $tag-color-1;
+  color: $tag-text-color-default
+ 
+}
+.tag-color-2 {
+  background-color: $tag-color-2;
+  color: $tag-text-color-default
+}
+.tag-color-3 {
+  background-color: $tag-color-3;
+  color: $tag-text-color-default
+}
+.tag-color-defaut {
+  background-color: $tag-color-default;
+  color:$tag-text-color-default;
+}

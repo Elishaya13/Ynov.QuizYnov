@@ -1,17 +1,26 @@
 
 <!-- Quiz details page -->
-
-<div class="quiz-details">
-    <a [routerLink]="['/quizzes']" class="back-btn">← Retour à la liste des Quiz</a>
+<div class="quiz-details-container">
+  <div class="quiz-details">   
+     <!-- Composant pour le tag -->
+     <app-category-tag 
+     [categoryName]="quiz?.category?.name ?? 'Catégorie par défaut'" 
+     [categoryId]="quiz?.category?.id ?? 0">
+   </app-category-tag>
     <h2>{{ quiz?.name }}</h2>
   
     <p class="description">{{ quiz?.description }}</p>
   
     <div class="info">
       <p><strong>Difficulté :</strong> {{ quiz?.difficulty }}</p>
+      <p><strong>Nombre de questions :</strong> {{ quiz?.questions?.length }}</p>   
       <p><strong>Publié le :</strong> {{ quiz?.published?.toLocaleDateString() }}</p>
     </div>
   
-    <a [routerLink]="['.','questions']" class="start-quiz-btn">Démarrer le Quiz !</a>
+    <a [routerLink]="['.','questions']" class="start-quiz-btn">Démarrer le Quiz !</a>   
+  
   </div>
+  <a [routerLink]="['/quizzes']" class="back-btn">← Retour à la liste des Quiz</a>
+</div>
+  
   
