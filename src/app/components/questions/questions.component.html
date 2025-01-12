@@ -1,21 +1,42 @@
-
-<!-- <pre>{{ questions | json }}</pre> -->
-<!-- <pre>{{ serializedQuestions | json }}</pre> -->
-<!-- <pre>{{ questions | json }}</pre>
-<pre>{{ form.value | json }}</pre> -->
+<!--<pre>{{ form.value | json }}</pre> -->
 
 <form [formGroup]="form" (ngSubmit)="onSubmitForm()">
   <div formArrayName="questions">
-    <div *ngFor="let question of questions; let i = index" [formGroupName]="i">
-      <p>{{ questions[i].text }}</p>
-      <div *ngFor="let answer of questions[i].answers">
-        <label>
+  @for (question of questionsForm; track $index) {
+    <div [formGroupName]="$index">
+      <p>{{questions()[$index].text}}</p>
+      @for (answer of questions()[$index].answers; track $index) {
+        <div>
+        <label [class.correct]="formSubmitted && answer.isCorrect"
+               [class.incorrect]="formSubmitted && !answer.isCorrect && question.value.selectedAnswer === answer.text">
           <input type="radio" formControlName="selectedAnswer" [value]="answer.text">
           {{ answer.text }}
         </label>
       </div>
+      }
     </div>
+  }
   </div>
-  <button type="submit">Submit</button>
+  
+  <div class="submit-button">
+    <app-button
+      label="Valider les réponses"
+      type="primary"
+      buttonType="submit">
+    </app-button>
+  </div>
+
+  <!-- Partie score -->
+  @if (formSubmitted) {
+    <div class="score-display">
+      <h4>Score: <span class="score-value">{{ score }}</span>/<span class="total-value">{{ totalQuestions }}</span></h4>
+      <div class="progress-bar-container">
+        <div class="progress-bar" [style.width]="percentageFormatted">
+          {{ percentageFormatted }}
+        </div>
+      </div>
+    </div>
+  }
 </form>
+
 

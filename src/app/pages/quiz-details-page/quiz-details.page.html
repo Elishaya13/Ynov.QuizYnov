@@ -9,9 +9,10 @@
    </app-category-tag>
     <h2>{{ quiz?.name }}</h2>
   
-    <p class="description">{{ quiz?.description }}</p>
+    
   
     <div class="info">
+      <p class="description">{{ quiz?.description }}</p>
       <p><strong>Difficulté :</strong> {{ quiz?.difficulty }}</p>
       <p><strong>Nombre de questions :</strong> {{ quiz?.questions?.length }}</p>   
       <p><strong>Publié le :</strong> {{ quiz?.published?.toLocaleDateString() }}</p>

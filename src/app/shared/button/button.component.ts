@@ -12,4 +12,5 @@ export class ButtonComponent {
   @Input() disabled: boolean = false; // Désactiver le bouton
   @Input() icon: string | null = null; // Icône optionnelle
   @Input() size: 'small' | 'medium' | 'large' = 'medium'; // Taille du bouton
+  @Input() buttonType: 'button' | 'submit' = 'button'; // Type de bouton HTML
 }

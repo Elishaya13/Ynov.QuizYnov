@@ -6,3 +6,40 @@
   .incorrect {
     color: red;
   }
+
+.submit-button {
+    text-align: center;
+  }
+
+// Score
+.score-display {
+  padding: 10px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.score-value {
+  color: #4CAF50; 
+}
+
+.total-value {
+  color: #555; 
+}
+
+.progress-bar-container {
+  width: 100%; 
+  background-color: #f0f0f0; 
+  border: 1px solid #ccc; 
+  padding: 3px; 
+}
+
+
+.progress-bar {
+  background-color: #4CAF50; 
+  color: white;
+  height: 20px; 
+  line-height: 20px; 
+  border-radius: 5px;
+  text-align: center;
+}

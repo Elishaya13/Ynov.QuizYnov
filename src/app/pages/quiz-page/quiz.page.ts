@@ -55,11 +55,12 @@ export class QuizPage implements OnInit, OnDestroy {
     });
   }
 
-  public validateQuiz(): void {
-    // Logique pour valider le quiz (temporaire)
-    console.log('Validation des réponses :', this.questions$);
-    alert('Quiz validé avec succès !');
-  }
+  // public validateQuiz(): void {
+  //   // Logique pour valider le quiz (temporaire)
+  //   console.log('Validation des réponses :', this.questions$);
+  //   console.log('reponses ', this.questions);
+  //   alert('Quiz validé avec succès !');
+  // }
 
   public abandonQuiz(): void {
     // Confirmation avant d'abandonner

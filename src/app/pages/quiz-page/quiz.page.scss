@@ -1,3 +1,5 @@
+@import '../../../assets/styles/variables.scss';
+
 .quiz-page {
   position: relative;
     max-width: 800px;
@@ -19,11 +21,12 @@
   
   .quiz-page h2 {
     font-size: 28px;
-    color: #0078d4;
+    color: $primary-color;
     text-align: center;
+    margin-top: 40px;
     margin-bottom: 20px;
   }
-  
+
   .quiz-page .description {
     font-size: 18px;
     color: #555;
@@ -44,55 +47,10 @@
     margin: 5px 0;
   }
   
-  /* Bouton Valider au centre */
-  .quiz-actions {
-    text-align: center;
-    margin-top: 20px;
-  }
-  
-  .btn-validate {
-    background-color: #0078d4;
-    color: #fff;
-    padding: 10px 20px;
-    border-radius: 5px;
-    font-size: 16px;
-    font-weight: bold;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-  }
-  
-  .btn-validate:hover {
-    background-color: #005bb5;
-  }
-  
-  .btn-validate:active {
-    transform: scale(0.98);
-  }
-  
   /* Bouton Abandonner sous la carte */
   .quiz-abandon {
     text-align: center;
-    margin-top: 20px; /* Espacement par rapport à la carte */
+    margin-top: 20px; 
   }
   
-  .btn-abandon {
-    background-color: #e74c3c;
-    color: #fff;
-    padding: 8px 15px;
-    border-radius: 5px;
-    font-size: 14px;
-    font-weight: bold;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-  }
-  
-  .btn-abandon:hover {
-    background-color: #c0392b;
-  }
-  
-  .btn-abandon:active {
-    transform: scale(0.98);
-  }
   
