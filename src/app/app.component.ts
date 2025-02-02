@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterLink, RouterOutlet } from '@angular/router';
-import { Quiz } from './business/models/quiz.model';
-import { QuizService } from './business/services/quiz.service';
-import { Subscription } from 'rxjs';
+
 
 @Component({
   selector: 'app-root',

@@ -1,5 +1,20 @@
-<h2> Page des scores </h2>
-<p>Nombre de quiz réalisés : 3</p>
-<p>Moyenne des scores : 5/10</p>
-<p>Score le plus élevé : 7/7</p>
-<p>Score le plus bas : 0/5 </p>
+
+<h1>Tentatives de quiz</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Quiz</th>
+      <th>Nombre de tentatives</th>
+      <th>Dernier score</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (attempt of quizAttempts; track attempt.id) {
+      <tr>
+        <td>{{ attempt.quizName }}</td>
+        <td>{{ attempt.attemptsCount }}</td>
+        <td>{{ attempt.lastScore }}%</td>
+      </tr>
+    }
+  </tbody>
+</table>

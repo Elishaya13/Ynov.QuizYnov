@@ -1,0 +1,22 @@
+@import '../../../assets/styles/variables.scss';
+h1 {
+    text-align: center;
+    color: $primary-color;
+}
+
+table {
+    width: 60%;
+    border-collapse: collapse;
+    margin: 0 auto;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: $secondary-color;
+    color: white;
+}
