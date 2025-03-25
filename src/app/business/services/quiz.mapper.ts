@@ -30,6 +30,7 @@ export class QuizMapper {
       id: dto.id,
       text: dto.text,
       answers: dto.answers.map((answer) => ({
+        id: answer.id,
         text: answer.text,
         isCorrect: answer.isCorrect,
       })),
@@ -41,6 +42,7 @@ export class QuizMapper {
       id: data.id,
       text: data.text,
       answers: data.answers.map((answer) => ({
+        id: answer.id,
         text: answer.text,
         isCorrect: answer.isCorrect,
       })),
