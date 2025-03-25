@@ -1,22 +1,23 @@
 
-<div>
+<section>
   <h2>Liste des quiz</h2>
-  <div class="quiz-list">
-    @for(quiz of quizzes; track quiz.id){
-      <div class="quiz-card">
-        <a [routerLink]="['.', quiz.id]" class="quiz-link">
-          <h3>{{ quiz.name }}</h3>       
-          <p>Difficulté : {{ quiz.difficulty }}</p>
-          <p>Publié le : {{ quiz.published.toLocaleDateString() }}</p>
-          <!-- Composant pour le tag -->
-          <app-category-tag 
-          [categoryName]="quiz?.category?.name ?? 'Catégorie par défaut'" 
-          [categoryId]="quiz?.category?.id ?? 0">
-        </app-category-tag>
-        </a>
-      </div>
-    }
-  </div>
-</div>
+    <ul>
+      @for(quiz of quizzes; track quiz.id){
+        <li>
+          <div>
+            <a [routerLink]="['.', quiz.id]">
+              <h3>{{ quiz.name }}</h3>       
+              <p>Difficulté : {{ quiz.difficulty }}</p>
+              <p>Publié le : {{ quiz.published.toLocaleDateString() }}</p>
+              <!-- Composant pour le tag -->
+              <app-category-tag 
+              [categoryName]="quiz?.category?.name ?? 'Catégorie par défaut'" 
+              [categoryId]="quiz?.category?.id ?? 0">
+            </app-category-tag>
+            </a>
+          </div>
+        </li>
+      }
+    </ul>
+</section>
 
-<!-- UL LI -->
